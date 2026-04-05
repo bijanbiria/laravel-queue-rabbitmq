@@ -823,4 +823,18 @@ class RabbitMQQueue extends Queue implements QueueContract, RabbitMQQueueContrac
     {
         return 0;
     }
+
+    /**
+     * Get the Unix timestamp of the oldest pending job in the queue.
+     *
+     * RabbitMQ does not expose per-message creation timestamps via AMQP
+     * in a way that is efficiently queryable, so this returns null.
+     *
+     * @param  string|null  $queue
+     * @return int|null
+     */
+    public function creationTimeOfOldestPendingJob($queue = null): ?int
+    {
+        return null;
+    }
 }
