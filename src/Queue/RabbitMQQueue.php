@@ -779,4 +779,48 @@ class RabbitMQQueue extends Queue implements QueueContract, RabbitMQQueueContrac
         // Create a new main channel because all old channels are removed.
         $this->getChannel(true);
     }
+
+    /**
+     * Get the size of the queue.
+     *
+     * @param  string|null  $queue
+     * @return int
+     */
+    public function pendingSize($queue = null)
+    {
+        return $this->size($queue);
+    }
+
+    /**
+     * Get the size of the delayed queue.
+     *
+     * @param  string|null  $queue
+     * @return int
+     */
+    public function delayedSize($queue = null)
+    {
+        return 0;
+    }
+
+    /**
+     * Get the size of the reserved queue.
+     *
+     * @param  string|null  $queue
+     * @return int
+     */
+    public function reservedSize($queue = null)
+    {
+        return 0;
+    }
+
+    /**
+     * Get the size of the ready queue.
+     *
+     * @param  string|null  $queue
+     * @return int
+     */
+    public function readySize($queue = null)
+    {
+        return 0;
+    }
 }
